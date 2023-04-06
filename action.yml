@@ -1,4 +1,5 @@
 name: "Custom GitHub Action"
+description: "Custom GitHub Action"
 inputs:
   terraform_env_variables:
     description: "List of Terraform Environmental Variables"
