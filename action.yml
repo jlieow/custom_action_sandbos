@@ -9,12 +9,17 @@ runs:
   steps:
     - name: Export Terraform Environmental Variables
       run: |
+        echo terraform_env_variables
+        echo ${{ inputs.terraform_env_variables }}
+
+
         terraform_env_variables=$(cat <<EOF
         ${{ inputs.terraform_env_variables }}
         EOF
         )
 
+        echo loop
         echo "$terraform_env_variables" | while read line; do
-          export $line
+          echo $line
         done
       shell: bash
