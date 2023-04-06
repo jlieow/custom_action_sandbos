@@ -1,0 +1,19 @@
+name: "Custom GitHub Action"
+inputs:
+  terraform_env_variables:
+    description: "List of Terraform Environmental Variables"
+    required: true
+runs:
+  using: "composite"
+  steps:
+    - name: Export Terraform Environmental Variables
+      run: |
+        terraform_env_variables=$(cat <<EOF
+        ${{ inputs.terraform_env_variables }}
+        EOF
+        )
+
+        echo "$terraform_env_variables" | while read line; do
+          export $line
+        done
+      shell: bash
