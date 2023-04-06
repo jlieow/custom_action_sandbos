@@ -22,9 +22,9 @@ runs:
       shell: bash
     - name: Check Terraform Environmental Variables
       run: |
-        export
+        echo $TF_CLI_ARGS_init
       shell: bash
     - name: Check Terraform Environmental Variables
       run: |
-        export
+        echo $TF_VAR_aws_account_id
       shell: bash
