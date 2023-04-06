@@ -18,8 +18,14 @@ runs:
         EOF
         )
 
+        echo
         echo loop
         echo "$terraform_env_variables" | while read line; do
-          echo $line
+          echo export $line 
+          export $line 
         done
+
+        echo
+        echo show env 
+        export
       shell: bash
